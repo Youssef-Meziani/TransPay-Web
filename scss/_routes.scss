@@ -1,0 +1,45 @@
+/*============================================
+
+               11 -- Routes
+
+==============================================*/
+.route-stops-area{
+    background-color: $gray-100;
+    min-height: 100vh;
+    height: fit-content;
+
+    .accordion-button:focus{
+        box-shadow: none;
+    }
+    .accordion-button{
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #2c3e50;
+    }
+    
+    .accordion-body{
+        color: #2c3e50;
+        text-transform: capitalize;
+    
+        .la-map-pin{
+            color: $theme-color-1 !important;
+            font-size: 2rem;
+        }
+
+        .flipped{
+            transform: rotateX(180deg) rotateY(360deg);
+        }
+    }
+    
+    .la-bus{
+        font-size: 2rem;
+        color: $theme-color-1;
+    }
+
+    .vertical-line{
+        width: 2px;
+        background-color: $theme-color-1;
+        border-radius: 1px;
+        height: 50px;
+    }
+}

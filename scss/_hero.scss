@@ -1,0 +1,149 @@
+
+/*============================================
+
+                05 -- hero
+
+==============================================*/
+.pos-rel {
+  position: relative;
+}
+
+.oh {
+  overflow: hidden;
+}
+
+
+/*-- Hero 01 --*/
+
+.hero-1 {
+  padding: 170px 0px 98px;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat !important;
+
+  .container > .row{
+    @media only screen and (max-width: 992px) {
+      row-gap: 2rem;
+      flex-direction: column;
+      flex: 100%;
+    }
+
+    > div {
+      flex: 50%;
+    }
+  }
+
+  @media #{$lg-layout}, #{$md-layout} {
+    height: auto;
+    padding: 150px 0px 80px;
+  }
+
+  @media #{$xs-layout}, #{$sm-layout} {
+    height: auto;
+    padding: 120px 0px 70px;
+  }
+
+  @media #{$layout-575} {
+    height: auto;
+  }
+
+  .hero-1-content {
+
+    .hero-1-button-group {
+      margin: -15px;
+
+      a {
+        margin: 15px;
+      }
+    }
+
+    .cate {
+      margin-bottom: 25px;
+      color: $theme-color-1;
+
+      @media #{$xs-layout} {
+        margin-bottom: 10px;
+      }
+    }
+
+    .title {
+      font-size: 56px;
+      line-height: 66px;
+      margin-bottom: 15px;
+      color: $gray-700;
+      font-weight: 600;
+      font-family: $font-2;
+
+      @media #{$xs-layout} {
+        font-size: 50px;
+        line-height: 56px;
+        margin-bottom: 10px;
+      }
+
+      @media #{$layout-575} {
+        font-size: 48px;
+        line-height: 56px;
+        margin-bottom: 10px;
+      }
+    }
+
+    p {
+      font-size: 24px;
+      line-height: 40px;
+      margin: 0;
+      margin-bottom: 33px;
+      font-weight: 300;
+      color: $gray-600;
+
+      @media #{$xs-layout} {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 35px;
+      }
+
+      @media #{$layout-575} {
+        font-size: 18px;
+        line-height: 30px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+
+
+
+.floating {
+  animation-name: floating;
+  animation-duration: 5.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(5%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes floating {
+  0% {
+    -webkit-transform: translateY(0%);
+  }
+
+  50% {
+    -webkit-transform: translateY(5%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+  }
+}

@@ -1,0 +1,51 @@
+/*============================================
+
+                26 -- download
+
+==============================================*/
+.download-area {
+    background-color:#bcd9ea;
+    @media only screen and (max-width: 991px) {
+
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+    }
+
+    h2 {
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
+
+    ul{
+        width: fit-content;
+        margin: auto;
+    }
+
+    ul li {
+        padding: 10px 0;
+        font-size: 17px;
+
+        i {
+            font-weight: bold;
+            font-size: 18px;
+            color: $theme-color-1;
+            margin-right: 15px;
+        }
+    }
+
+    .btn {
+        border-radius: 50px;
+    }
+    
+    .layout-btn{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .download-1-img{
+        overflow: hidden;
+    }
+}

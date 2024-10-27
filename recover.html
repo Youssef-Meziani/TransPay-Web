@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TransPay - Recover password</title>
+    <!-- /Required meta tags -->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.svg" id="favicon" type="image/x-icon">
+    <!-- /Favicon -->
+
+    <!-- Theme color for navbars -->
+    <meta name="theme-color" content="#307ed6">
+    <meta name="msapplication-navbutton-color" content="#307ed6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- All CSS -->
+
+    <!-- Vendor Css -->
+    <link rel="stylesheet" href="css/vendors.css">
+    <!-- /Vendor Css -->
+
+    <!-- Plugin Css -->
+    <link rel="stylesheet" href="css/plugins.css">
+    <!-- Plugin Css -->
+
+    <!-- Icons Css -->
+    <link rel="stylesheet" href="css/icons.css">
+    <!-- /Icons Css -->
+
+    <!-- Style Css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- /Style Css -->
+
+    <!-- /All CSS -->
+
+</head>
+
+<body>
+
+    <!-- Recover -->
+    <div class="login-page d-flex align-items-center vh-100">
+        <div class="overlay"></div>
+        <div class="login-form">
+            <!-- Container -->
+            <div class="container">
+                <form method="post" action="change-password.php">
+                    <div class="login-social-icon">
+                        <h2>Password Recovery</h2>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="login-form-icon"><i class="uil uil-envelope"></i></span>
+                        <input type="email" class="form-control" name="email" tabindex="1" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" spellcheck="false" placeholder="Email"
+                            required>
+                    </div>
+
+                    <div class="row justify-content-center mb-md-3">
+                        <div class="col-sm-6 mb-md-3 mb-sm-0 text-center">
+                            <button type="submit" class="btn theme-btn-1">Send Code</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /Container -->
+        </div>
+    </div>
+    <!-- /Recover -->
+
+    <!-- JS -->
+
+    <!-- Vendor Js -->
+    <script src="js/vendors.js"></script>
+    <!-- /Vendor js -->
+
+    <!-- Plugins Js -->
+    <script src="js/plugins.js"></script>
+    <!-- /Plugins Js -->
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+    <!-- /Main JS -->
+
+    <script src="js/sweet_alert.js"></script>
+	<script src="js/verify-email.js"></script>
+
+    <script>
+        $('form').submit(function(event) {
+            event.preventDefault();
+            
+			if (this.checkValidity() === false) {
+                return;
+			}
+
+            var account_exist = new Promise(function(resolve, reject) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'assets/check_acc_existance.php',
+                    data: { email: $('[name=email]').val() },
+                    success: function(response) {
+                        if (response == '') {
+                            Swal.fire({
+                                title: 'Account does not Exist!',
+                                text: 'It seems that there is no account associated with this email.',
+                                icon: 'error',
+                                showCloseButton: true,
+                                allowOutsideClick: false
+                            });
+                            reject();
+                        } else {
+                            resolve();
+                        }
+                    }
+                });
+            });
+
+            account_exist.then(verify_email);
+        });
+    </script>
+
+    <!-- /JS -->
+
+</body>
+
+</html>
